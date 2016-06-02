@@ -6,145 +6,29 @@
 // ===============================================================================================
 $options      = array();
 
-// -----------------------------------------
-// Page Metabox Options                    -
-// -----------------------------------------
+
 $options[]    = array(
-  'id'        => '_custom_page_options',
-  'title'     => 'Custom Page Options',
-  'post_type' => 'page',
-  'context'   => 'normal',
-  'priority'  => 'default',
-  'sections'  => array(
-
-    // begin: a section
-    array(
-      'name'  => 'section_1',
-      'title' => 'Section 1',
-      'icon'  => 'fa fa-cog',
-
-      // begin: fields
-      'fields' => array(
-
-        // begin: a field
-        array(
-          'id'    => 'section_1_text',
-          'type'  => 'text',
-          'title' => 'Text Field',
-        ),
-        // end: a field
-
-        array(
-          'id'    => 'section_1_textarea',
-          'type'  => 'textarea',
-          'title' => 'Textarea Field',
-        ),
-
-        array(
-          'id'    => 'section_1_upload',
-          'type'  => 'upload',
-          'title' => 'Upload Field',
-        ),
-
-        array(
-          'id'    => 'section_1_switcher',
-          'type'  => 'switcher',
-          'title' => 'Switcher Field',
-          'label' => 'Yes, Please do it.',
-        ),
-
-      ), // end: fields
-    ), // end: a section
-
-    // begin: a section
-    array(
-      'name'  => 'section_2',
-      'title' => 'Section 2',
-      'icon'  => 'fa fa-tint',
-      'fields' => array(
-
-        array(
-          'id'      => 'section_2_color_picker_1',
-          'type'    => 'color_picker',
-          'title'   => 'Color Picker 1',
-          'default' => '#2ecc71',
-        ),
-
-        array(
-          'id'      => 'section_2_color_picker_2',
-          'type'    => 'color_picker',
-          'title'   => 'Color Picker 2',
-          'default' => '#3498db',
-        ),
-
-        array(
-          'id'      => 'section_2_color_picker_3',
-          'type'    => 'color_picker',
-          'title'   => 'Color Picker 3',
-          'default' => '#9b59b6',
-        ),
-
-        array(
-          'id'      => 'section_2_color_picker_4',
-          'type'    => 'color_picker',
-          'title'   => 'Color Picker 4',
-          'default' => '#34495e',
-        ),
-
-        array(
-          'id'      => 'section_2_color_picker_5',
-          'type'    => 'color_picker',
-          'title'   => 'Color Picker 5',
-          'default' => '#e67e22',
-        ),
-
-      ),
-    ),
-    // end: a section
-
-  ),
-);
-
-// -----------------------------------------
-// Page Side Metabox Options               -
-// -----------------------------------------
-$options[]    = array(
-  'id'        => '_custom_page_side_options',
-  'title'     => 'Custom Page Side Options',
-  'post_type' => 'page',
+  'id'        => '_custom_mycustomcode_type',
+  'title'     => 'My Custom Code Type',
+  'post_type' => 'mycustomcode',
   'context'   => 'side',
   'priority'  => 'default',
   'sections'  => array(
 
     array(
-      'name'   => 'section_3',
+      'name'   => 'section_side',
       'fields' => array(
 
         array(
-          'id'        => 'section_3_image_select',
+          'id'        => 'section_code_type',
           'type'      => 'image_select',
           'options'   => array(
-            'value-1' => 'http://codestarframework.com/assets/images/placeholder/65x65-2ecc71.gif',
-            'value-2' => 'http://codestarframework.com/assets/images/placeholder/65x65-e74c3c.gif',
-            'value-3' => 'http://codestarframework.com/assets/images/placeholder/65x65-3498db.gif',
+            'js' => get_template_directory_uri() .'/images/js.gif',
+            'css' => get_template_directory_uri() .'/images/css.gif',
+            'html' => get_template_directory_uri() .'/images/html.gif',
           ),
-          'default'   => 'value-2',
-        ),
-
-        array(
-          'id'            => 'section_3_text',
-          'type'          => 'text',
-          'attributes'    => array(
-            'placeholder' => 'do stuff'
-          )
-        ),
-
-        array(
-          'id'      => 'section_3_switcher',
-          'type'    => 'switcher',
-          'label'   => 'Are you sure ?',
-          'default' => true
-        ),
+          'default'   => 'html',
+        ),       
 
       ),
     ),
@@ -152,45 +36,49 @@ $options[]    = array(
   ),
 );
 
-// -----------------------------------------
-// Post Metabox Options                    -
-// -----------------------------------------
+
 $options[]    = array(
-  'id'        => '_custom_post_options',
-  'title'     => 'Custom Post Options',
-  'post_type' => 'post',
+  'id'        => '_custom_mycustomcode_options',
+  'title'     => 'My Custom Code Options',
+  'post_type' => 'mycustomcode',
   'context'   => 'normal',
   'priority'  => 'default',
   'sections'  => array(
 
     array(
-      'name'   => 'section_4',
+      'name'   => 'section_options',
       'fields' => array(
 
         array(
-          'id'    => 'section_4_text',
-          'type'  => 'text',
-          'title' => 'Text Field',
+          'id'             => 'position_select',
+          'type'           => 'select',
+          'title'          => 'Select positiond',
+          'options'        => array(
+            'header'         => 'Header',
+            'after_body'     => 'After body',
+            'footer'         => 'Footer',
+          ),          
         ),
 
         array(
-          'id'    => 'section_4_textarea',
+          'id'    => 'code_js',
           'type'  => 'textarea',
-          'title' => 'Textarea Field',
+          'title' => 'Code',
+          'after' => 'Use code without <script></script>',
+        ),        
+
+        array(
+          'id'    => 'code_css',
+          'type'  => 'textarea',
+          'title' => 'Code',
+          'after' => 'Use code without <style></style>',
         ),
 
         array(
-          'id'    => 'section_4_upload',
-          'type'  => 'upload',
-          'title' => 'Upload Field',
-        ),
-
-        array(
-          'id'    => 'section_4_switcher',
-          'type'  => 'switcher',
-          'title' => 'Switcher Field',
-          'label' => 'Yes, Please do it.',
-        ),
+          'id'    => 'code_html',
+          'type'  => 'textarea',
+          'title' => 'Code',
+        ),       
 
       ),
     ),
