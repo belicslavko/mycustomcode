@@ -55,9 +55,9 @@ $options[]    = array(
           'title'          => 'Select positiond',
           'options'        => array(
             'header'         => 'Header',
-            'after_body'     => 'After body',
             'footer'         => 'Footer',
-          ),          
+          ),
+          'dependency'   => array( 'section_code_type', '==', 'js' ),
         ),
 
         array(
@@ -65,6 +65,7 @@ $options[]    = array(
           'type'  => 'textarea',
           'title' => 'Code',
           'after' => 'Use code without <script></script>',
+          'dependency'   => array( 'section_code_type', '==', 'js' ),
         ),        
 
         array(
@@ -72,12 +73,14 @@ $options[]    = array(
           'type'  => 'textarea',
           'title' => 'Code',
           'after' => 'Use code without <style></style>',
+          'dependency'   => array( 'section_code_type', '==', 'css' ),
         ),
 
         array(
           'id'    => 'code_html',
           'type'  => 'textarea',
           'title' => 'Code',
+          'dependency'   => array( 'section_code_type', '==', 'html' ),
         ),       
 
       ),
